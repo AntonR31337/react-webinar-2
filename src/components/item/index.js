@@ -8,16 +8,9 @@ function Item(props) {
   const cn = bem('Item');
 
   // Счётчик выделений
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   const callbacks = {
-
-    onClick: useCallback(() => {
-      props.onSelect(props.item.code);
-      if (!props.item.selected) {
-        setCount(count + 1);
-      }
-    }, [props.onSelect, props.item, setCount, count]),
 
     onDelete: useCallback((e) => {
       e.stopPropagation();
@@ -32,7 +25,6 @@ function Item(props) {
       </div>
       <div className={cn('title')}>
         {props.item.title}
-        {count ? ` | Выделялось ${count} ${plural(count, 'раз', 'раза', 'раз')}` : null}
       </div>
       <div className={cn('actions')}>
         <button onClick={callbacks.onDelete}>

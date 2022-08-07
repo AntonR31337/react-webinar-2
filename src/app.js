@@ -28,7 +28,6 @@ function App({store}) {
     <Layout head={<h1>Приложение на чистом JS</h1>}>
       <Controls onAdd={callbacks.onAdd}/>
       <List items={store.getState().items}
-            onItemSelect={callbacks.onSelectItems}
             onItemDelete={callbacks.onDeleteItems}
       />
     </Layout>
